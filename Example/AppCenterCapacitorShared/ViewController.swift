@@ -17,8 +17,8 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         AppCenterCapacitorShared.configureWithSettings()
-        AppCenter.logLevel = .verbose
-        AppCenter.enabled = true
+        AppCenter.enabled = true;
+        print(AppCenter.logLevel.rawValue)
     }
 
     override func didReceiveMemoryWarning() {
