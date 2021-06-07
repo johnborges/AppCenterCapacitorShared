@@ -6,10 +6,12 @@ public class AppCenterCapacitorShared: NSObject {
     static var startAutomatically: Bool = true
     static var configuration: NSDictionary = [:]
     static var appSecret: String?
+    static var logLevel: UInt?
     static var wrapperSdk: WrapperSdk?
     // plist keys
     static var kAppCenterSecretKey = "AppSecret"
     static var kAppCenterStartAutomaticallyKey = "StartAutomatically"
+    static var kAppCenterLogLevelKey = "LogLevel"
     static var kAppCenterConfigResource = "AppCenter-Config"
     
     public static func getConfiguration() -> NSDictionary {
@@ -25,10 +27,10 @@ public class AppCenterCapacitorShared: NSObject {
             return
         }
         
-        let wrapperSdk = WrapperSdk(wrapperSdkVersion: "0.1.0", wrapperSdkName: "appcenter.capacitor", wrapperRuntimeVersion: nil, liveUpdateReleaseLabel: nil, liveUpdateDeploymentKey: nil, liveUpdatePackageHash: nil)
+        let wrapperSdk = WrapperSdk(wrapperSdkVersion: "0.2.0", wrapperSdkName: "appcenter.capacitor", wrapperRuntimeVersion: nil, liveUpdateReleaseLabel: nil, liveUpdateDeploymentKey: nil, liveUpdatePackageHash: nil)
 
         setWrapperSdk(wrapperSdk!)
-        getAppSecret()
+        getSdkConfig()
                 
         if startAutomatically {
             if appSecret!.count == 0 {
@@ -37,6 +39,11 @@ public class AppCenterCapacitorShared: NSObject {
             else {
                 AppCenter.configure(withAppSecret: appSecret)
             }
+            
+            // set log level if specified
+            if logLevel != nil {
+                AppCenter.logLevel = LogLevel.init(rawValue: logLevel!) ?? .assert
+            }
         }
     }
     
@@ -44,12 +51,17 @@ public class AppCenterCapacitorShared: NSObject {
         appSecret = secret
     }
     
-    public static func getAppSecret() {
+    public static func getSdkConfig() {
         if appSecret == nil {
-            // get values from config plist
+            // get config plist
             let plist = Bundle.main.path(forResource: AppCenterCapacitorShared.kAppCenterConfigResource, ofType: "plist")
             configuration = NSDictionary(contentsOfFile: plist!)!
+
+            // get appSecret key
             appSecret = configuration[AppCenterCapacitorShared.kAppCenterSecretKey] as? String
+
+            // get log level
+            logLevel = configuration[AppCenterCapacitorShared.kAppCenterLogLevelKey] as? UInt
             
             // start automatically flag true by default
             if let rawStartAutomatically = configuration[AppCenterCapacitorShared.kAppCenterStartAutomaticallyKey] as? Bool {
