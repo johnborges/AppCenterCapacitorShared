@@ -14,6 +14,10 @@ public class AppCenterCapacitorShared: NSObject {
     static var kAppCenterLogLevelKey = "LogLevel"
     static var kAppCenterConfigResource = "AppCenter-Config"
     
+    public static func isSdkConfigured() -> Bool {
+        return AppCenter.isConfigured
+    }
+    
     public static func getConfiguration() -> NSDictionary {
         return configuration
     }
