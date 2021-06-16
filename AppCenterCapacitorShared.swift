@@ -31,7 +31,7 @@ public class AppCenterCapacitorShared: NSObject {
             return
         }
         
-        let wrapperSdk = WrapperSdk(wrapperSdkVersion: "0.2.0", wrapperSdkName: "appcenter.capacitor", wrapperRuntimeVersion: nil, liveUpdateReleaseLabel: nil, liveUpdateDeploymentKey: nil, liveUpdatePackageHash: nil)
+        let wrapperSdk = WrapperSdk(wrapperSdkVersion: "0.3.1", wrapperSdkName: "appcenter.capacitor", wrapperRuntimeVersion: nil, liveUpdateReleaseLabel: nil, liveUpdateDeploymentKey: nil, liveUpdatePackageHash: nil)
 
         setWrapperSdk(wrapperSdk!)
         getSdkConfig()
