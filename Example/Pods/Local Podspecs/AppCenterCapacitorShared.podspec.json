@@ -1,7 +1,7 @@
 {
   "name": "AppCenterCapacitorShared",
-  "version": "0.1.0",
-  "summary": "Shared utility to assist with bootstrapping AppCenter for Capacitor apps.",
+  "version": "0.3.1",
+  "summary": "Shared utility to assist with bootstrapping AppCenter for Capacitor plugin.",
   "homepage": "https://github.com/capacitor-community/appcenter-sdk-capacitor",
   "license": {
     "type": "MIT",
@@ -11,8 +11,8 @@
     "johnborges": "john.borges@icloud.com"
   },
   "source": {
-    "git": "https://github.com/capacitor-community/appcenter-sdk-capacitor.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/johnborges/AppCenterCapacitorShared.git",
+    "tag": "0.3.1"
   },
   "social_media_url": "https://twitter.com/johnborges",
   "platforms": {
@@ -22,7 +22,7 @@
   "source_files": "*.swift",
   "dependencies": {
     "AppCenter/Core": [
-      "4.1.1"
+      "4.2.0"
     ]
   },
   "static_framework": true,
