@@ -1,7 +1,7 @@
 PODS:
-  - AppCenter/Core (4.2.0)
-  - AppCenterCapacitorShared (0.3.1):
-    - AppCenter/Core (= 4.2.0)
+  - AppCenter/Core (4.3.0)
+  - AppCenterCapacitorShared (0.3.2):
+    - AppCenter/Core (= 4.3.0)
 
 DEPENDENCIES:
   - AppCenterCapacitorShared (from `../`)
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  AppCenter: 87ef6eefd8ade4df59e88951288587429f3dd2a5
-  AppCenterCapacitorShared: 7514580229eb653607bef4a699699ca854a271f7
+  AppCenter: 883369ab78427b0561c688158d689dfe1f993ea9
+  AppCenterCapacitorShared: 3643108692ca6d59904fa45edd3b2631c32b1532
 
 PODFILE CHECKSUM: fe3b1998cfd9db5f6be13fa9f965c722197a749c
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
